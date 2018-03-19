@@ -61,4 +61,26 @@ func findMissingInt(array: [Int]) {
 
 findMissingInt(array: [3, 4, 0, 1])
 
+//Given a list of integers, write a function that returns the largest sum of non-adjacent numbers. Numbers can be 0 or negative.
+//For example, [2, 4, 6, 8] should return 12, since we pick 4 and 8. [5, 1, 1, 5] should return 10, since we pick 5 and 5.
+
+func nonAdjacentSum(array: [Int]) -> Int {
+    var max = 0
+    var sumArr: [Int] = []
+    for i in 0..<array.count {
+        for j in 1..<array.count {
+            if i != j && j - i != 1 && j - i != -1 {
+                sumArr.append(array[i] + array[j])
+            }
+        }
+
+    }
+    if sumArr.count >= 1 {
+        max = sumArr.max()!
+    }
+    return max
+
+}
+
+nonAdjacentSum(array: [5, 1, 1, 5])
 
