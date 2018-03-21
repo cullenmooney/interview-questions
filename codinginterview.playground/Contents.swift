@@ -68,8 +68,8 @@ func nonAdjacentSum(array: [Int]) -> Int {
     var max = 0
     var sumArr: [Int] = []
     for i in 0..<array.count {
-        for j in 1..<array.count {
-            if i != j && j - i != 1 && j - i != -1 {
+        for j in 2..<array.count {
+            if i != j && j - i != 1  && j - i != -1{
                 sumArr.append(array[i] + array[j])
             }
         }
@@ -78,9 +78,31 @@ func nonAdjacentSum(array: [Int]) -> Int {
     if sumArr.count >= 1 {
         max = sumArr.max()!
     }
+    print(sumArr)
     return max
 
 }
 
-nonAdjacentSum(array: [5, 1, 1, 5])
+nonAdjacentSum(array: [2, 4, 6, 8])
+
+//Implement an autocomplete system. That is, given a query string s and a set of all possible query strings, return all strings in the set that have s as a prefix.
+//For example, given the query string de and the set of strings [dog, deer, deal], return [deer, deal].
+//Hint: Try preprocessing the dictionary into a more efficient data structure to speed up queries.
+
+func queryStrings(letters: String) -> [String] {
+    let arr = ["Bob", "Bill", "Cassandra"]
+    var results: [String] = []
+    for name in arr {
+        for char in name {
+            if letters.contains(char) {
+                results.append(name)
+            }
+        }
+
+    }
+    print(results)
+    return results
+}
+
+queryStrings(letters: "B")
 
